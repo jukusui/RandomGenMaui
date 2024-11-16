@@ -1,0 +1,22 @@
+<Project>
+	<PropertyGroup Condition="'$(MSBuildProjectExtension)'=='.csproj'">
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<!-- <PropertyGroup>
+		<PlatformArch Condition="'$(Platform)'=='Win32'">x86</PlatformArch>
+		<PlatformArch Condition="'$(Platform)'!='Win32'">$(Platform)</PlatformArch>
+	</PropertyGroup> -->
+	<PropertyGroup Condition="'$(MSBuildProjectExtension)'=='.csproj'">
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<BaseOutputPath>$(SolutionDir)Build\bin\$(MSBuildProjectName)\</BaseOutputPath>
+		<!-- <OutputPath>$(SolutionDir)\Build\bin\$(Configuration)\$(PlatformArch)\$(MSBuildProjectName)\</OutputPath> -->
+		<BaseIntermediateOutputPath>$(SolutionDir)Build\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+		<!-- <IntermediateOutputPath>$(SolutionDir)Build\obj\$(Configuration)\$(PlatformArch)\$(MSBuildProjectName)\</IntermediateOutputPath> -->
+		<!-- <OutDir>$(OutputPath)\</OutDir> -->
+		<!-- <IntDir>$(IntermediateOutputPath)\</IntDir> -->
+	</PropertyGroup>
+
+</Project>
