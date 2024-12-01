@@ -8,7 +8,7 @@
     <TabBar>
         <Tab Title="Dice">
             <Tab.Icon>
-                <FontImageSource Glyph="D" FontFamily="RandomGenIcon" />
+                <FontImageSource Glyph="&#xE001;" FontFamily="RandomGenIcon" />
             </Tab.Icon>
             <ShellContent
                 Title="Dice"
@@ -18,7 +18,7 @@
         </Tab>
         <Tab Title="Password">
             <Tab.Icon>
-                <FontImageSource Glyph="P" FontFamily="RandomGenIcon"/>
+                <FontImageSource Glyph="&#xE002;" FontFamily="RandomGenIcon"/>
             </Tab.Icon>
             <ShellContent
                 Title="Password"
