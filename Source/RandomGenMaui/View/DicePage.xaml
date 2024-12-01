@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Jukusui.RandomGen.View.Control"
              xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
+             xmlns:view="clr-namespace:Jukusui.RandomGen.View"
              x:Class="Jukusui.RandomGen.View.DicePage"
-             Title="DicePage">
+             Title="DicePage" view:ToastManager.Text="{Binding ErrorText}">
     <ContentPage.BindingContext>
         <vm:DiceViewModel/>
     </ContentPage.BindingContext>

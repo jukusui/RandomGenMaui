@@ -50,6 +50,12 @@
 		<MauiXaml Update="View\DicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="View\InfoPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\LicenseInfo.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="View\PasswordPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

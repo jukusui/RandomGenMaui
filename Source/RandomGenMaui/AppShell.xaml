@@ -26,6 +26,21 @@
                 Route="Password" >
             </ShellContent>
         </Tab>
+        <Tab Title="Info">
+            <Tab.Icon>
+                <FontImageSource Glyph="&#xE88E;" FontFamily="MaterialIconsRegular"/>
+            </Tab.Icon>
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:InfoPage}"
+                Route="Info" >
+            </ShellContent>
+            <ShellContent
+                Title="License"
+                ContentTemplate="{DataTemplate local:LicenseInfo}"
+                Route="License" >
+            </ShellContent>
+        </Tab>
     </TabBar>
 
 </Shell>

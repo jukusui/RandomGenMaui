@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Jukusui.RandomGen.Model;
+using Jukusui.RandomGen.View;
 using Microsoft.Maui.Animations;
 using System;
 using System.Collections;
@@ -119,6 +120,8 @@ public partial class PasswordViewModel : ObservableObject
             var pass = password.Generate(CharacterGroups.EnabledChars, (int)Length);
             Results.Insert(Results.Count, new(next, pass));
             await Clipboard.SetTextAsync(pass);
+            ToastManager.Show("Copied");
+
         }
     }
 
