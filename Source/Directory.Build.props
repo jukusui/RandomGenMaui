@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup Condition="'$(MSBuildProjectExtension)'=='.csproj'">
-		<LangVersion>12.0</LangVersion>
+		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<!-- <PropertyGroup>

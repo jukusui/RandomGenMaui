@@ -2,6 +2,7 @@
 using Jukusui.RandomGen.View.Control;
 using Microsoft.Extensions.Logging;
 
+
 namespace Jukusui.RandomGen;
 
 public static class MauiProgramExtensions

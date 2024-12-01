@@ -11,18 +11,18 @@ internal class Password
 
     private readonly RngBase rng = RngFactory.Create();
 
-    public string Generate(IReadOnlyList<char> strings, int length)
+    public string Generate(string chars, int length)
     {
         if (length <= 0)
             return "";
-        if (strings.Count <= 0)
+        if (chars.Length <= 0)
             return "";
-        var patterns = (uint)strings.Count;
-        StringBuilder sb = new StringBuilder(length, length);
+        var patterns = (uint)chars.Length;
+        StringBuilder sb = new(length, length);
         for (int i = 0; i < length; i++)
         {
 
-            sb[i] = strings[(int)rng.NextUInt32(patterns)];
+            sb.Append(chars[(int)rng.NextUInt32(patterns)]);
         }
         return sb.ToString();
     }

@@ -18,38 +18,48 @@
         </Grid.RowDefinitions>
         <FlexLayout Padding="-8,-8,-8,0" Wrap="Wrap" >
             <FlexLayout.Resources>
-                <Style TargetType="Button">
+                <Style TargetType="Button" Class="Flex">
                     <Setter Property="Margin" Value="4,4"/>
+                    <Setter Property="Command" Value="{Binding SetValueCommand}"/>
                 </Style>
             </FlexLayout.Resources>
-            <Button Text="2" Command="{Binding SetValueCommand}" CommandParameter="2"/>
-            <Button Text="6" Command="{Binding SetValueCommand}" CommandParameter="6"/>
-            <Button Text="10" Command="{Binding SetValueCommand}" CommandParameter="10"/>
-            <Button Text="20" Command="{Binding SetValueCommand}" CommandParameter="20"/>
-            <Button Text="100" Command="{Binding SetValueCommand}" CommandParameter="100"/>
+            <Button StyleClass="Flex" Text="2" CommandParameter="2"/>
+            <Button StyleClass="Flex" Text="6" CommandParameter="6"/>
+            <Button StyleClass="Flex" Text="10" CommandParameter="10"/>
+            <Button StyleClass="Flex" Text="20" CommandParameter="20"/>
+            <Button StyleClass="Flex" Text="100" CommandParameter="100"/>
         </FlexLayout>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" ColumnSpacing="16">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="16"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Entry Grid.Row="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"></Entry>
-            <Stepper Grid.Row="1" Grid.Column="2" Value="{Binding Maximum,Mode=TwoWay}"
+            <Stepper Grid.Row="1" Grid.Column="1" Value="{Binding Maximum,Mode=TwoWay}"
                      Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
         </Grid>
         <Label Grid.Row="2" Text="{Binding ErrorText,Mode=OneWay}"/>
-        <Label Grid.Row="2" Text="1「DP」2" FontFamily="RandomGenIcon"/>
         <Button Grid.Row="3" Text="Roll" Command="{Binding RollCommand}"/>
         <Border Grid.Row="4">
             <CollectionView ItemsSource="{Binding Results}" SelectionMode="None"
                             ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <HorizontalStackLayout>
-                            <Label Text="{Binding Key}" WidthRequest="50"/>
-                            <Label Grid.Column="1" Text="{Binding Value}"/>
-                        </HorizontalStackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Key}" FontSize="Large"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1" Text="{Binding Value,Mode=OneWay}" FontSize="Large"
+                                   HorizontalOptions="FillAndExpand" IsReadOnly="True"
+                                   VerticalOptions="Center">
+                                <Entry.GestureRecognizers>
+                                    <TapGestureRecognizer Buttons="Primary" Tapped="OnOutputEntryTapped" />
+                                </Entry.GestureRecognizers>
+                            </Entry>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

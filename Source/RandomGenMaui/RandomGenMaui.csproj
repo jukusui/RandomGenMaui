@@ -28,7 +28,7 @@
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
-		<MauiFont Include="..\..\Assets\FontPath\RandomGenIcon.ttf"/>
+		<MauiFont Include="..\..\Assets\FontPath\RandomGenIcon.ttf" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
@@ -36,14 +36,17 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.93" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.93" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.100" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
 
 	<Import Project="..\Platform.props" />
 
 	<ItemGroup>
+		<MauiXaml Update="View\Control\LabeledCheckBox.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="View\DicePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
