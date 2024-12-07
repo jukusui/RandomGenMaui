@@ -18,4 +18,5 @@ public partial class DicePage : ContentPage
             ToastManager.Show("Copied");
         }
     }
+
 }

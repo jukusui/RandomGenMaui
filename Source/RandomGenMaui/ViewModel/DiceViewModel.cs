@@ -65,32 +65,42 @@ public partial class DiceViewModel : ObservableObject
     public uint RangeMin { get; } = 2;
     public uint RangeMax { get; } = 1000000;
 
+    private int resultNo = 0;
+    private const int RESULT_MAX = 100;
+
     public ObservableCollection<KeyValuePair<int, uint>> Results { get; } = [];
 
     private readonly Dice dice = new();
 
     public ICommand SetValueCommand { get; }
     public ICommand RollCommand { get; }
+    public ICommand DeleteCommand { get; }
 
     public DiceViewModel()
     {
         RollCommand = new Command(Roll);
         SetValueCommand = new Command(SetValue);
+        DeleteCommand = new Command(Delete);
+    }
+
+    private void Delete()
+    {
+        Results.Clear();
+        resultNo = 0;
     }
 
     private void Roll()
     {
         if (2 <= Maximum)
         {
-            var next = Results.Count + 1;
-            if (100 <= Results.Count)
+            if (RESULT_MAX <= Results.Count)
             {
-                next = Results.First().Key + 1;
                 Results.RemoveAt(0);
             }
-            Results.Insert(Results.Count, new(next,
+            ;
+            resultNo = (resultNo + 1) % RESULT_MAX;
+            Results.Insert(Results.Count, new(resultNo,
                 dice.Roll(Maximum) + 1));
-
         }
     }
 

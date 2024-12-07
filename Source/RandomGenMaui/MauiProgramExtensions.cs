@@ -14,7 +14,7 @@ public static class MauiProgramExtensions
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("RandomGenIcon.ttf", "RandomGenIcon");
-                fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIconsRegular");
+                fonts.AddFont("MaterialSymbolsOutlined.ttf", "MaterialIconsRegular");
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })

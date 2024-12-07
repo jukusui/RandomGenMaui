@@ -14,10 +14,20 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <FlexLayout Padding="-8,-8,-8,0" Wrap="Wrap" >
+        <Grid Grid.Row="0" ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Max" FontSize="Subtitle" VerticalOptions="Center"/>
+            <Entry Grid.Column="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"></Entry>
+            <Stepper Grid.Column="2" Value="{Binding Maximum,Mode=TwoWay}"
+                     Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
+        </Grid>
+        <FlexLayout Grid.Row="1" Padding="-8,-8,-8,0" Wrap="Wrap" >
             <FlexLayout.Resources>
                 <Style TargetType="Button" Class="Flex">
                     <Setter Property="Margin" Value="4,4"/>
@@ -27,31 +37,31 @@
             <Button StyleClass="Flex" Text="2" CommandParameter="2"/>
             <Button StyleClass="Flex" Text="6" CommandParameter="6"/>
             <Button StyleClass="Flex" Text="10" CommandParameter="10"/>
-            <Button StyleClass="Flex" Text="20" CommandParameter="20"/>
             <Button StyleClass="Flex" Text="100" CommandParameter="100"/>
         </FlexLayout>
-        <Grid Grid.Row="1" ColumnSpacing="16">
+        <Grid Grid.Row="2" ColumnSpacing="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Entry Grid.Row="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"></Entry>
-            <Stepper Grid.Row="1" Grid.Column="1" Value="{Binding Maximum,Mode=TwoWay}"
-                     Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
+            <Button Text="Roll" FontSize="Subtitle" Command="{Binding RollCommand}"/>
+            <ImageButton Grid.Column="1" Command="{Binding DeleteCommand}" VerticalOptions="Center">
+                <ImageButton.Source>
+                    <FontImageSource Glyph="&#xF518;" FontFamily="MaterialIconsRegular"/>
+                </ImageButton.Source>
+            </ImageButton>
         </Grid>
-        <Label Grid.Row="2" Text="{Binding ErrorText,Mode=OneWay}"/>
-        <Button Grid.Row="3" Text="Roll" Command="{Binding RollCommand}"/>
-        <Border Grid.Row="4">
+        <Border Grid.Row="3">
             <CollectionView ItemsSource="{Binding Results}" SelectionMode="None"
                             ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="50"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Key}" FontSize="Large"
+                            <Label Text="{Binding Key}" FontSize="Small"
                                    VerticalOptions="Center"/>
                             <Entry Grid.Column="1" Text="{Binding Value,Mode=OneWay}" FontSize="Large"
                                    HorizontalOptions="FillAndExpand" IsReadOnly="True"
