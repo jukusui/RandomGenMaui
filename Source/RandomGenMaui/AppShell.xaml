@@ -3,42 +3,52 @@
     x:Class="Jukusui.RandomGen.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
     xmlns:local="clr-namespace:Jukusui.RandomGen.View"
-    Title="RandomGenMaui" Shell.NavBarIsVisible="False">
+    Title="{x:Static prop:Resources.AppInfo_Name}" Shell.NavBarIsVisible="False">
+    <Shell.IconImageSource>
+        <FontImageSource Glyph="&#xE000;" FontFamily="RandomGenIcon" />
+    </Shell.IconImageSource>
     <TabBar>
-        <Tab Title="Dice">
+        <Tab Title="{x:Static prop:Resources.TabName_Dice}">
             <Tab.Icon>
                 <FontImageSource Glyph="&#xE001;" FontFamily="RandomGenIcon" />
             </Tab.Icon>
             <ShellContent
-                Title="Dice"
+                Title="{x:Static prop:Resources.TabName_Dice}"
                 ContentTemplate="{DataTemplate local:DicePage}"
                 Route="Dice">
             </ShellContent>
         </Tab>
-        <Tab Title="Password">
+        <Tab Title="{x:Static prop:Resources.TabName_Password}">
             <Tab.Icon>
                 <FontImageSource Glyph="&#xE002;" FontFamily="RandomGenIcon"/>
             </Tab.Icon>
             <ShellContent
-                Title="Password"
+                Title="{x:Static prop:Resources.TabName_Password}"
                 ContentTemplate="{DataTemplate local:PasswordPage}"
-                Route="Password" >
+                Route="Password">
             </ShellContent>
         </Tab>
-        <Tab Title="Info">
+        <Tab Title="{x:Static prop:Resources.TabName_Info}">
             <Tab.Icon>
                 <FontImageSource Glyph="&#xE88E;" FontFamily="MaterialIconsRegular"/>
             </Tab.Icon>
             <ShellContent
-                Title="Home"
+                Title="{x:Static prop:Resources.TabName_About}"
                 ContentTemplate="{DataTemplate local:InfoPage}"
-                Route="Info" >
+                Route="About">
+                <ShellContent.Icon>
+                    <FontImageSource Glyph="&#xF59B;" FontFamily="MaterialIconsRegular"/>
+                </ShellContent.Icon>
             </ShellContent>
             <ShellContent
-                Title="License"
+                Title="{x:Static prop:Resources.TabName_License}"
                 ContentTemplate="{DataTemplate local:LicenseInfo}"
-                Route="License" >
+                Route="License">
+                <ShellContent.Icon>
+                    <FontImageSource Glyph="&#xEB04;" FontFamily="MaterialIconsRegular"/>
+                </ShellContent.Icon>
             </ShellContent>
         </Tab>
     </TabBar>
