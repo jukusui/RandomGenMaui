@@ -115,7 +115,7 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
-        ///   Symbols に類似しているローカライズされた文字列を検索します。
+        ///   Symbol に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Password_ChSymbol {
             get {

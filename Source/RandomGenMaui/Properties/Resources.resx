@@ -158,7 +158,7 @@
     <comment>パスワード_0～9</comment>
   </data>
   <data name="Password_ChSymbol" xml:space="preserve">
-    <value>Symbols</value>
+    <value>Symbol</value>
     <comment>パスワード_記号</comment>
   </data>
   <data name="Password_ChNumber" xml:space="preserve">
