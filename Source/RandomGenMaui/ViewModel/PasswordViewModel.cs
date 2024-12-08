@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Jukusui.RandomGen.Model;
-using Jukusui.RandomGen.View;
+using Jukusui.RandomGen.Properties;
+using Jukusui.RandomGen.Util;
 using Microsoft.Maui.Animations;
 using System;
 using System.Collections;
@@ -73,20 +74,26 @@ public partial class PasswordViewModel : ObservableObject
 
     [ObservableProperty]
     private string? errorText = null;
-
     #endregion
 
+    [ObservableProperty]
+    private bool isPassword = true;
+
+    private int resultNo = 0;
+    private const int RESULT_MAX = 100;
+
+
     public CharacterGroup ChUpper { get; } =
-        new CharacterGroup(null, "A-Z", RangeBetween('A', 'Z'));
+        new CharacterGroup(null, Resources.Password_ChUpper, RangeBetween('A', 'Z'));
 
     public CharacterGroup ChLower { get; } =
-        new CharacterGroup(null, "a-z", RangeBetween('a', 'z'));
+        new CharacterGroup(null, Resources.Password_ChLower, RangeBetween('a', 'z'));
 
     public CharacterGroup ChNumber { get; } =
-        new CharacterGroup(null, "0-9", RangeBetween('0', '9'));
+        new CharacterGroup(null, Resources.Password_ChNumber, RangeBetween('0', '9'));
 
     public CharacterGroup ChSymbol { get; } =
-        new CharacterGroup(null, "ãLçÜ", [
+        new CharacterGroup(null, Resources.Password_ChSymbol, [
             "!","\"","#","$","%","&","'","()","*","+",",","-",".","/",
             ":",";","<>","=","?",
             "@",
@@ -100,28 +107,42 @@ public partial class PasswordViewModel : ObservableObject
     public ObservableCollection<KeyValuePair<int, string>> Results { get; } = [];
 
     public ICommand RollCommand { get; }
+    public ICommand VisibilityCommand { get; }
+    public ICommand DeleteCommand { get; }
     public PasswordViewModel()
     {
         CharacterGroups = new CharacterGroup(null, "All",
             ChUpper, ChLower, ChNumber, ChSymbol);
         RollCommand = new Command(OnRoll);
+        VisibilityCommand = new Command(ChangeVisibility);
+        DeleteCommand = new Command(OnDelete);
     }
+
+    private void ChangeVisibility()
+    {
+        IsPassword = !IsPassword;
+    }
+
+    private void OnDelete()
+    {
+        Results.Clear();
+        resultNo = 0;
+    }
+
 
     private async void OnRoll()
     {
         if (2 <= Length)
         {
-            var next = Results.Count + 1;
-            if (100 <= Results.Count)
+            if (RESULT_MAX <= Results.Count)
             {
-                next = Results.First().Key + 1;
                 Results.RemoveAt(0);
             }
+            resultNo = (resultNo + 1) % RESULT_MAX;
             var pass = password.Generate(CharacterGroups.EnabledChars, (int)Length);
-            Results.Insert(Results.Count, new(next, pass));
+            Results.Insert(Results.Count, new(resultNo, pass));
             await Clipboard.SetTextAsync(pass);
-            ToastManager.Show("Copied");
-
+            ToastManager.Show(Resources.GenShared_Copied);
         }
     }
 

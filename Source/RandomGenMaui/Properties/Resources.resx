@@ -141,4 +141,40 @@
     <value>RandomGen</value>
     <comment>アプリ情報_アプリ名</comment>
   </data>
+  <data name="Dice_Max" xml:space="preserve">
+    <value>Max</value>
+    <comment>サイコロ_最大の出目</comment>
+  </data>
+  <data name="Dice_Roll" xml:space="preserve">
+    <value>Roll</value>
+    <comment>サイコロ_抽選ボタン</comment>
+  </data>
+  <data name="Password_Generate" xml:space="preserve">
+    <value>Generate</value>
+    <comment>パスワード_生成</comment>
+  </data>
+  <data name="Password_ChUpper" xml:space="preserve">
+    <value>0-9</value>
+    <comment>パスワード_0～9</comment>
+  </data>
+  <data name="Password_ChSymbol" xml:space="preserve">
+    <value>Symbols</value>
+    <comment>パスワード_記号</comment>
+  </data>
+  <data name="Password_ChNumber" xml:space="preserve">
+    <value>a-z</value>
+    <comment>パスワード_a～z</comment>
+  </data>
+  <data name="Password_ChLower" xml:space="preserve">
+    <value>A-Z</value>
+    <comment>パスワード_A～Z</comment>
+  </data>
+  <data name="GenShared_Copied" xml:space="preserve">
+    <value>Copied</value>
+    <comment>Copied</comment>
+  </data>
+  <data name="Password_Length" xml:space="preserve">
+    <value>Length</value>
+    <comment>パスワード_桁数</comment>
+  </data>
 </root>

@@ -135,4 +135,31 @@
   <data name="AppInfo_Name" xml:space="preserve">
     <value>RandomGen</value>
   </data>
+  <data name="Dice_Max" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="Dice_Roll" xml:space="preserve">
+    <value>抽選</value>
+  </data>
+  <data name="Password_Generate" xml:space="preserve">
+    <value>生成</value>
+  </data>
+  <data name="Password_ChUpper" xml:space="preserve">
+    <value>0～9</value>
+  </data>
+  <data name="Password_ChSymbol" xml:space="preserve">
+    <value>記号</value>
+  </data>
+  <data name="Password_ChNumber" xml:space="preserve">
+    <value>a～z</value>
+  </data>
+  <data name="Password_ChLower" xml:space="preserve">
+    <value>A～Z</value>
+  </data>
+  <data name="GenShared_Copied" xml:space="preserve">
+    <value>コピーしました</value>
+  </data>
+  <data name="Password_Length" xml:space="preserve">
+    <value>桁数</value>
+  </data>
 </root>

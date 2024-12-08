@@ -78,18 +78,18 @@ public partial class DiceViewModel : ObservableObject
 
     public DiceViewModel()
     {
-        RollCommand = new Command(Roll);
+        RollCommand = new Command(OnRoll);
         SetValueCommand = new Command(SetValue);
-        DeleteCommand = new Command(Delete);
+        DeleteCommand = new Command(OnDelete);
     }
 
-    private void Delete()
+    private void OnDelete()
     {
         Results.Clear();
         resultNo = 0;
     }
 
-    private void Roll()
+    private void OnRoll()
     {
         if (2 <= Maximum)
         {
@@ -97,7 +97,6 @@ public partial class DiceViewModel : ObservableObject
             {
                 Results.RemoveAt(0);
             }
-            ;
             resultNo = (resultNo + 1) % RESULT_MAX;
             Results.Insert(Results.Count, new(resultNo,
                 dice.Roll(Maximum) + 1));

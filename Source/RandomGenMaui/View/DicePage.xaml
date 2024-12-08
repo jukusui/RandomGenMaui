@@ -3,55 +3,81 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Jukusui.RandomGen.View.Control"
              xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
-             xmlns:view="clr-namespace:Jukusui.RandomGen.View"
+             xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
+             xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
              x:Class="Jukusui.RandomGen.View.DicePage"
-             Title="DicePage" view:ToastManager.Text="{Binding ErrorText}">
+             Title="{x:Static prop:Resources.TabName_Dice}" util:ToastManager.Text="{Binding ErrorText}">
     <ContentPage.BindingContext>
         <vm:DiceViewModel/>
     </ContentPage.BindingContext>
-    <Grid VerticalOptions="Fill" Margin="16" RowSpacing="8">
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState Name="Narrow">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0"/>
+                </VisualState.StateTriggers>
+
+            </VisualState>
+            <VisualState Name="Wide">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="500"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter TargetName="MaxButtons" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="MaxButtons" Property="Grid.RowSpan" Value="2"/>
+                    <Setter TargetName="RoleButtons" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="RoleButtons" Property="Grid.Column" Value="1"/>
+                    <Setter TargetName="RoleButtons" Property="Grid.Row" Value="1"/>
+                    <Setter TargetName="RoleButtons" Property="Grid.RowSpan" Value="2"/>
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <Grid VerticalOptions="Fill" Margin="16" RowSpacing="16" ColumnSpacing="24">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" ColumnSpacing="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="2" ColumnSpacing="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Text="Max" FontSize="Subtitle" VerticalOptions="Center"/>
+            <Label Text="{x:Static prop:Resources.Dice_Max}" FontSize="Subtitle" VerticalOptions="Center"/>
             <Entry Grid.Column="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"></Entry>
             <Stepper Grid.Column="2" Value="{Binding Maximum,Mode=TwoWay}"
                      Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
         </Grid>
-        <FlexLayout Grid.Row="1" Padding="-8,-8,-8,0" Wrap="Wrap" >
+        <FlexLayout x:Name="MaxButtons" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,-8,-8" Wrap="Wrap">
             <FlexLayout.Resources>
                 <Style TargetType="Button" Class="Flex">
-                    <Setter Property="Margin" Value="4,4"/>
+                    <Setter Property="Margin" Value="0,0,8,8"/>
                     <Setter Property="Command" Value="{Binding SetValueCommand}"/>
                 </Style>
             </FlexLayout.Resources>
-            <Button StyleClass="Flex" Text="2" CommandParameter="2"/>
-            <Button StyleClass="Flex" Text="6" CommandParameter="6"/>
-            <Button StyleClass="Flex" Text="10" CommandParameter="10"/>
-            <Button StyleClass="Flex" Text="100" CommandParameter="100"/>
+            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="2" CommandParameter="2"/>
+            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="6" CommandParameter="6"/>
+            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="10" CommandParameter="10"/>
+            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="100" CommandParameter="100"/>
         </FlexLayout>
-        <Grid Grid.Row="2" ColumnSpacing="8">
+        <Grid x:Name="RoleButtons" Grid.Row="2" Grid.ColumnSpan="2" ColumnSpacing="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button Text="Roll" FontSize="Subtitle" Command="{Binding RollCommand}"/>
-            <ImageButton Grid.Column="1" Command="{Binding DeleteCommand}" VerticalOptions="Center">
-                <ImageButton.Source>
-                    <FontImageSource Glyph="&#xF518;" FontFamily="MaterialIconsRegular"/>
-                </ImageButton.Source>
-            </ImageButton>
+            <Button Text="{x:Static prop:Resources.Dice_Roll}" FontSize="Subtitle" Command="{Binding RollCommand}" VerticalOptions="Center"/>
+            <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" Command="{Binding DeleteCommand}" VerticalOptions="Center" 
+                    Text="&#xEA4C;" FontFamily="MaterialIconsRegular"
+                    FontSize="Title" Padding="-22"/>
         </Grid>
-        <Border Grid.Row="3">
+        <Border Grid.Row="3" Grid.ColumnSpan="2">
             <CollectionView ItemsSource="{Binding Results}" SelectionMode="None"
                             ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>

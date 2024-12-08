@@ -1,8 +1,12 @@
 #if ANDROID
 using Android.Widget;
+using Jukusui.RandomGen.Util;
 #endif
 
 namespace Jukusui.RandomGen.View;
+
+using Jukusui.RandomGen.Util;
+using Res = Properties.Resources;
 
 public partial class PasswordPage : ContentPage
 {
@@ -34,7 +38,7 @@ public partial class PasswordPage : ContentPage
         if (sender is Entry input)
         {
             await Clipboard.SetTextAsync(input.Text);
-            ToastManager.Show("Copied");
+            ToastManager.Show(Res.GenShared_Copied);
         }
     }
 }

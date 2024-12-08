@@ -70,6 +70,87 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Max に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Dice_Max {
+            get {
+                return ResourceManager.GetString("Dice_Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Roll に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Dice_Roll {
+            get {
+                return ResourceManager.GetString("Dice_Roll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Copied に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string GenShared_Copied {
+            get {
+                return ResourceManager.GetString("GenShared_Copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   A-Z に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_ChLower {
+            get {
+                return ResourceManager.GetString("Password_ChLower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   a-z に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_ChNumber {
+            get {
+                return ResourceManager.GetString("Password_ChNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Symbols に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_ChSymbol {
+            get {
+                return ResourceManager.GetString("Password_ChSymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   0-9 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_ChUpper {
+            get {
+                return ResourceManager.GetString("Password_ChUpper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Generate に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_Generate {
+            get {
+                return ResourceManager.GetString("Password_Generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Length に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Password_Length {
+            get {
+                return ResourceManager.GetString("Password_Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   About this App に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TabName_About {

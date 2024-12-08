@@ -1,10 +1,9 @@
 ﻿#if ANDROID
-using Android.Views.Inspectors;
 using Android.Widget;
-using System.Runtime.CompilerServices;
+
 #endif
 
-namespace Jukusui.RandomGen.View;
+namespace Jukusui.RandomGen.Util;
 
 public class ToastManager : BindableObject
 {
@@ -56,7 +55,7 @@ public class ToastManager : BindableObject
     private static Toast? oldToast;
     private static object mutex = new();
 #else
-    public static void Show(string? _) {}
+    public static void Show(string? _) { }
 #endif
 
 }
