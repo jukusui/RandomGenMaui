@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Jukusui.RandomGen.Model;
+using Jukusui.RandomGen.Properties;
 namespace Jukusui.RandomGen.ViewModel;
 
 public partial class DiceViewModel : ObservableObject
@@ -37,12 +37,12 @@ public partial class DiceViewModel : ObservableObject
                 if (newValue < RangeMin)
                 {
                     SetProperty(ref maximumText, value);
-                    ErrorText = "smaller";
+                    ErrorText = Resources.Error_Smaller;
                 }
                 else if (RangeMax < newValue)
                 {
                     SetProperty(ref maximumText, value);
-                    ErrorText = "bigger";
+                    ErrorText = Resources.Error_Bigger;
                 }
                 else
                 {
@@ -54,7 +54,7 @@ public partial class DiceViewModel : ObservableObject
             else
             {
                 SetProperty(ref maximumText, value);
-                ErrorText = "convert";
+                ErrorText = Resources.Error_NumberConvert;
             }
         }
     }

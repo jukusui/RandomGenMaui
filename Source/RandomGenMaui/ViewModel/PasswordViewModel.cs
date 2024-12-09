@@ -50,12 +50,12 @@ public partial class PasswordViewModel : ObservableObject
                 if (newValue < LengthMin)
                 {
                     SetProperty(ref lengthText, value);
-                    ErrorText = "smaller";
+                    ErrorText = Resources.Error_Smaller;
                 }
                 else if (LengthMax < newValue)
                 {
                     SetProperty(ref lengthText, value);
-                    ErrorText = "bigger";
+                    ErrorText = Resources.Error_Bigger;
                 }
                 else
                 {
@@ -67,7 +67,7 @@ public partial class PasswordViewModel : ObservableObject
             else
             {
                 SetProperty(ref lengthText, value);
-                ErrorText = "convert";
+                ErrorText = Resources.Error_NumberConvert;
             }
         }
     }

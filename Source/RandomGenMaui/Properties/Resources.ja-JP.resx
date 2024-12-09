@@ -162,4 +162,13 @@
   <data name="Password_Length" xml:space="preserve">
     <value>桁数</value>
   </data>
+  <data name="Error_Smaller" xml:space="preserve">
+    <value>値が小さすぎます</value>
+  </data>
+  <data name="Error_NumberConvert" xml:space="preserve">
+    <value>数値ではありません</value>
+  </data>
+  <data name="Error_Bigger" xml:space="preserve">
+    <value>値が大きすぎます</value>
+  </data>
 </root>

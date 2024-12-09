@@ -177,4 +177,16 @@
     <value>Length</value>
     <comment>パスワード_桁数</comment>
   </data>
+  <data name="Error_Smaller" xml:space="preserve">
+    <value>Value is Too Small</value>
+    <comment>エラー_値が小さすぎます</comment>
+  </data>
+  <data name="Error_NumberConvert" xml:space="preserve">
+    <value>Value is NOT Number</value>
+    <comment>エラー_数値ではありません</comment>
+  </data>
+  <data name="Error_Bigger" xml:space="preserve">
+    <value>Value is Too Big</value>
+    <comment>エラー_値が大きすぎます</comment>
+  </data>
 </root>

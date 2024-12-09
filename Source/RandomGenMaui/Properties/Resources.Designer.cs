@@ -88,6 +88,33 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Value is Too Big に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_Bigger {
+            get {
+                return ResourceManager.GetString("Error_Bigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Value is NOT Number に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_NumberConvert {
+            get {
+                return ResourceManager.GetString("Error_NumberConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Value is Too Small に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_Smaller {
+            get {
+                return ResourceManager.GetString("Error_Smaller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Copied に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string GenShared_Copied {

@@ -51,7 +51,8 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Label Text="{x:Static prop:Resources.Dice_Max}" FontSize="Subtitle" VerticalOptions="Center"/>
-            <Entry Grid.Column="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"></Entry>
+            <Entry Grid.Column="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                   ToolTipProperties.Text="{Binding ErrorText}" util:ErrorColorManager.TextColorOverride="Red" util:ErrorColorManager.EnableColorOverride="{Binding ErrorText}"/>
             <Stepper Grid.Column="2" Value="{Binding Maximum,Mode=TwoWay}"
                      Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
         </Grid>
