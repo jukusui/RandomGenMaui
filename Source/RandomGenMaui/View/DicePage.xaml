@@ -5,8 +5,11 @@
              xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
              xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
              xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
+             xmlns:scg="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="Jukusui.RandomGen.View.DicePage"
-             Title="{x:Static prop:Resources.TabName_Dice}" util:ToastManager.Text="{Binding ErrorText}">
+             Title="{x:Static prop:Resources.TabName_Dice}" util:ToastManager.Text="{Binding ErrorText}"
+             x:DataType="{x:Type vm:DiceViewModel}">
     <ContentPage.BindingContext>
         <vm:DiceViewModel/>
     </ContentPage.BindingContext>
@@ -84,7 +87,7 @@
                             ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="8,0,0,0" ColumnSpacing="4">
+                        <Grid Padding="8,0,0,0" ColumnSpacing="4" x:DataType="scg:KeyValuePair(sys:Int32,sys:UInt32)">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"/>
                                 <ColumnDefinition/>

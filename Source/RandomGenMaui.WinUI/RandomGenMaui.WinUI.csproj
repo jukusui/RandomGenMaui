@@ -18,6 +18,7 @@
 
 		<AssemblyName>Jukusui.RandomGen.WinUI</AssemblyName>
 		<RootNamespace>Jukusui.RandomGen.WinUI</RootNamespace>
+		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
