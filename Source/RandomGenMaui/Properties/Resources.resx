@@ -189,4 +189,12 @@
     <value>Value is Too Big</value>
     <comment>エラー_値が大きすぎます</comment>
   </data>
+  <data name="License_Group_Font" xml:space="preserve">
+    <value>Fonts</value>
+    <comment>ライセンス_グループ名_フォント</comment>
+  </data>
+  <data name="License_Group_Nuget" xml:space="preserve">
+    <value>Nuget Packages</value>
+    <comment>ライセンス_グループ名_Nuget</comment>
+  </data>
 </root>

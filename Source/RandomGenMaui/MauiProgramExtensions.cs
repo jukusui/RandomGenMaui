@@ -1,4 +1,5 @@
-﻿using Jukusui.RandomGen.View.Control;
+﻿using Jukusui.RandomGen.Util;
+using Jukusui.RandomGen.View.Control;
 using Microsoft.Extensions.Logging;
 
 
@@ -17,7 +18,7 @@ public static class MauiProgramExtensions
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-
+        var model= LicenseManager.LicenseViewModels;
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

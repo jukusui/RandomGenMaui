@@ -124,6 +124,24 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Fonts に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string License_Group_Font {
+            get {
+                return ResourceManager.GetString("License_Group_Font", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Nuget Packages に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string License_Group_Nuget {
+            get {
+                return ResourceManager.GetString("License_Group_Nuget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   A-Z に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Password_ChLower {

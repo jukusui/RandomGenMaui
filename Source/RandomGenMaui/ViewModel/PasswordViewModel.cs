@@ -73,11 +73,11 @@ public partial class PasswordViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private string? errorText = null;
+    public partial string? ErrorText { get; set; } = null;
     #endregion
 
     [ObservableProperty]
-    private bool isPassword = true;
+    public partial bool IsPassword { get; set; } = true;
 
     private int resultNo = 0;
     private const int RESULT_MAX = 100;

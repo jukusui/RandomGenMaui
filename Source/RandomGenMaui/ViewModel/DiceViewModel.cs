@@ -60,7 +60,7 @@ public partial class DiceViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private string? errorText = null;
+    public partial string? ErrorText { get; set; } = null;
 
     public uint RangeMin { get; } = 2;
     public uint RangeMax { get; } = 1000000;

@@ -28,6 +28,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{DAB0BB
 		Assets\RandomGenIcon.ttf = Assets\RandomGenIcon.ttf
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{D81E4285-C778-40D4-BE39-D7CB0F965015}"
+	ProjectSection(SolutionItems) = preProject
+		Assets\License\License.Droid.json = Assets\License\License.Droid.json
+		Assets\License\License.iOS.json = Assets\License\License.iOS.json
+		Assets\License\License.mac.json = Assets\License\License.mac.json
+		Assets\License\License.WinUI.json = Assets\License\License.WinUI.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +170,7 @@ Global
 		{AB02F8CC-5968-4EA5-B956-9215D980AD26} = {9CDE780B-1493-48CF-9EEB-DABBBFC92F77}
 		{B3559520-84B4-4FB9-BC4C-707471EC59FA} = {9CDE780B-1493-48CF-9EEB-DABBBFC92F77}
 		{87C9376C-152A-4026-90DD-3D3CB4AFA890} = {9CDE780B-1493-48CF-9EEB-DABBBFC92F77}
+		{D81E4285-C778-40D4-BE39-D7CB0F965015} = {DAB0BBE2-E8B0-47AD-980F-D7EFF13436B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF3C9DB1-EB40-4CF9-9A76-8510531225FD}

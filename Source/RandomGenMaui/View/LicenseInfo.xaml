@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:v="clr-namespace:Jukusui.RandomGen.View"
+             xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
+             xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
              x:Class="Jukusui.RandomGen.View.LicenseInfo"
-             Title="LicenseInfo">
-    <VerticalStackLayout>
-        <Label Text="material-design-icons"/> 
-        <Label Text="Apache License 2.0"/>
-        <Label Text="https://github.com/google/material-design-icons/blob/master/LICENSE"/>
-    </VerticalStackLayout>
+             Title="LicenseInfo" x:DataType="{x:Type vm:LicenseViewModel}">
+    <ContentPage.BindingContext>
+        <vm:LicenseViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView Padding="16">
+        <CollectionView ItemsSource="{Binding Licenses}" IsGrouped="True">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="8" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="{x:Type vm:LicenseGroup}">
+                    <Label FontSize="Title" Text="{Binding Name}"/>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type util:LicenseData}">
+                    <VerticalStackLayout x:Name="templateRoot">
+                        <VerticalStackLayout.Resources>
+                        </VerticalStackLayout.Resources>
+                        <Label FontSize="Subtitle">
+                            <Label.Text>
+                                <Binding Path="Output" x:DataType="v:FallbackProvider">
+                                    <Binding.Source>
+                                        <v:FallbackProvider BindingContext="{Binding BindingContext,Source={x:Reference templateRoot},x:DataType={x:Type util:LicenseData}}" x:DataType="{x:Type util:LicenseData}"
+                                                            Value1="{Binding Title}" Value2="{Binding ID}"/>
+                                    </Binding.Source>
+                                </Binding>
+                            </Label.Text>
+                        </Label>
+                        <Label FontSize="Micro">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding ID}" />
+                                    <Span Text="{Binding Version,StringFormat=\ (\{0\})}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label FontSize="Micro" Text="{Binding Authors,StringFormat=By\ \{0\}}"/>
+                        <Label FontSize="Caption" Text="{Binding ProjectUrl}"/>
+                        <Label FontSize="Caption">
+                            <Label.Text>
+                                <Binding Path="Output" x:DataType="v:FallbackProvider">
+                                    <Binding.Source>
+                                        <v:FallbackProvider BindingContext="{Binding BindingContext,Source={x:Reference templateRoot},x:DataType={x:Type util:LicenseData}}" x:DataType="{x:Type util:LicenseData}"
+                                                            Value1="{Binding LicenseText}" Value2="{Binding License,StringFormat=\{0\}\ License,TargetNullValue=License}"/>
+                                    </Binding.Source>
+                                </Binding>
+                            </Label.Text>
+                        </Label>
+                        <Label FontSize="Caption" Text="{Binding LicenseUrl}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
 </ContentPage>

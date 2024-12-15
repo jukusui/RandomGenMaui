@@ -171,4 +171,10 @@
   <data name="Error_Bigger" xml:space="preserve">
     <value>値が大きすぎます</value>
   </data>
+  <data name="License_Group_Font" xml:space="preserve">
+    <value>フォント</value>
+  </data>
+  <data name="License_Group_Nuget" xml:space="preserve">
+    <value>Nugetパッケージ</value>
+  </data>
 </root>

@@ -11,6 +11,7 @@
 		<AssemblyName>Jukusui.RandomGen</AssemblyName>
 		<RootNamespace>Jukusui.RandomGen</RootNamespace>
 		<NeutralLanguage>en-US</NeutralLanguage>
+		<LangVersion>preview</LangVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 
@@ -37,9 +38,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.14" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.14" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'"
+						  Include="..\..\Assets\License\License.Droid.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'"
+						  Include="..\..\Assets\License\License.iOS.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'"
+						  Include="..\..\Assets\License\License.mac.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'"
+						  Include="..\..\Assets\License\License.WinUI.json" LogicalName="License.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.21" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
 
