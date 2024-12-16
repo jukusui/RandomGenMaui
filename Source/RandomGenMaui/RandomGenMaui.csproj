@@ -22,6 +22,8 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
 		<MauiEnableXamlCBindingWithSourceCompilation>true</MauiEnableXamlCBindingWithSourceCompilation>
+		<AssemblyVersion>0.8.0.0</AssemblyVersion>
+		<FileVersion>0.8.0.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -38,14 +40,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'"
-						  Include="..\..\Assets\License\License.Droid.json" LogicalName="License.json" />
-		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'"
-						  Include="..\..\Assets\License\License.iOS.json" LogicalName="License.json" />
-		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'"
-						  Include="..\..\Assets\License\License.mac.json" LogicalName="License.json" />
-		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'"
-						  Include="..\..\Assets\License\License.WinUI.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="..\..\Assets\License\License.Droid.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'" Include="..\..\Assets\License\License.iOS.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'" Include="..\..\Assets\License\License.mac.json" LogicalName="License.json" />
+		<EmbeddedResource Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Include="..\..\Assets\License\License.WinUI.json" LogicalName="License.json" />
 	</ItemGroup>
 
 	<ItemGroup>
