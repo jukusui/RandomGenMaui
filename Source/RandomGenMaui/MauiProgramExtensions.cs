@@ -15,8 +15,8 @@ public static class MauiProgramExtensions
             {
                 fonts.AddFont("RandomGenIcon.ttf", "RandomGenIcon");
                 fonts.AddFont("MaterialSymbolsOutlined.ttf", "MaterialIconsRegular");
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                //fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                //fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
         var model= LicenseManager.LicenseViewModels;
 #if DEBUG

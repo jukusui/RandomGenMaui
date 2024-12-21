@@ -8,7 +8,9 @@
     </ContentView.GestureRecognizers>
     <HorizontalStackLayout BindingContext="{Binding Source={RelativeSource AncestorType={x:Type local:LabeledCheckBox}},x:DataType={x:Type local:LabeledCheckBox}}"
               x:DataType="local:LabeledCheckBox">
-        <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}" />
-        <Label Text="{Binding Label}" VerticalOptions="Center" Margin="{OnPlatform Default=0,WinUI='-8,0,0,0'}"/>
+        <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}"
+                  InputTransparent="True"/>
+        <Label Text="{Binding Label}" VerticalOptions="Center" Margin="{OnPlatform Default=0,WinUI='-8,0,0,0'}"
+               InputTransparent="True"/>
     </HorizontalStackLayout>
 </ContentView>

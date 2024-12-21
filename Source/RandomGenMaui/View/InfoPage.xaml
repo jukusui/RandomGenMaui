@@ -25,7 +25,7 @@
             HorizontalOptions="Center" >
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="α Verison "/>
+                    <Span Text="α Ver:"/>
                     <Span Text="{x:Static util:AssemblyInfoManager.Version}"/>
                 </FormattedString>
             </Label.FormattedText>
