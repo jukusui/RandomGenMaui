@@ -132,7 +132,7 @@ public partial class PasswordViewModel : ObservableObject
 
     private async void OnRoll()
     {
-        if (2 <= Length)
+        if (1 <= Length)
         {
             if (RESULT_MAX <= Results.Count)
             {

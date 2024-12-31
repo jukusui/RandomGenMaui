@@ -20,6 +20,26 @@
                 Route="Dice">
             </ShellContent>
         </Tab>
+        <Tab Title="{x:Static prop:Resources.TabName_Order}">
+            <Tab.Icon>
+                <FontImageSource Glyph="&#xE01d;" FontFamily="MaterialIconsRegular" />
+            </Tab.Icon>
+            <ShellContent
+                Title="{x:Static prop:Resources.TabName_Order}"
+                ContentTemplate="{DataTemplate local:OrderPage}"
+                Route="Order">
+            </ShellContent>
+        </Tab>
+        <Tab Title="{x:Static prop:Resources.TabName_Group}">
+            <Tab.Icon>
+                <FontImageSource Glyph="&#xE886;" FontFamily="MaterialIconsRegular" />
+            </Tab.Icon>
+            <ShellContent
+                Title="{x:Static prop:Resources.TabName_Group}"
+                ContentTemplate="{DataTemplate local:GroupPage}"
+                Route="Group">
+            </ShellContent>
+        </Tab>
         <Tab Title="{x:Static prop:Resources.TabName_Password}">
             <Tab.Icon>
                 <FontImageSource Glyph="&#xE002;" FontFamily="RandomGenIcon"/>

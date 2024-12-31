@@ -119,7 +119,7 @@
   </resheader>
   <data name="TabName_Dice" xml:space="preserve">
     <value>Dice</value>
-    <comment>タブ表示名サイコロ</comment>
+    <comment>タブ表示名_サイコロ</comment>
   </data>
   <data name="TabName_About" xml:space="preserve">
     <value>About this App</value>
@@ -196,5 +196,33 @@
   <data name="License_Group_Nuget" xml:space="preserve">
     <value>Nuget Packages</value>
     <comment>ライセンス_グループ名_Nuget</comment>
+  </data>
+  <data name="TabName_Group" xml:space="preserve">
+    <value>Group</value>
+    <comment>タブ表示名_組分け</comment>
+  </data>
+  <data name="TabName_Order" xml:space="preserve">
+    <value>Order</value>
+    <comment>タブ表示名_順序</comment>
+  </data>
+  <data name="Order_Input" xml:space="preserve">
+    <value>Input</value>
+    <comment>順序_入力</comment>
+  </data>
+  <data name="Order_InputPlaceholder" xml:space="preserve">
+    <value>Number or Space Delimited Text</value>
+    <comment>順序_プレースホルダ</comment>
+  </data>
+  <data name="Error_ListConvert" xml:space="preserve">
+    <value>Value is NOT Space Delimited</value>
+    <comment>エラー_正しく空白区切りされていません</comment>
+  </data>
+  <data name="Error_NumberOrList" xml:space="preserve">
+    <value>Input Number or Space Delimited Text</value>
+    <comment>エラー_数値か空白区切りで入力してください</comment>
+  </data>
+  <data name="Error_ListLonger" xml:space="preserve">
+    <value>Items are Too many</value>
+    <comment>エラー_データ数が多すぎます</comment>
   </data>
 </root>

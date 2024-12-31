@@ -97,11 +97,38 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Value is NOT Space Delimited に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_ListConvert {
+            get {
+                return ResourceManager.GetString("Error_ListConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Items are Too many に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_ListLonger {
+            get {
+                return ResourceManager.GetString("Error_ListLonger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Value is NOT Number に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Error_NumberConvert {
             get {
                 return ResourceManager.GetString("Error_NumberConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Input Number or Space Delimited Text に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Error_NumberOrList {
+            get {
+                return ResourceManager.GetString("Error_NumberOrList", resourceCulture);
             }
         }
         
@@ -138,6 +165,24 @@ namespace Jukusui.RandomGen.Properties {
         internal static string License_Group_Nuget {
             get {
                 return ResourceManager.GetString("License_Group_Nuget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Input に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Order_Input {
+            get {
+                return ResourceManager.GetString("Order_Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Number or Space Delimited Text に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Order_InputPlaceholder {
+            get {
+                return ResourceManager.GetString("Order_InputPlaceholder", resourceCulture);
             }
         }
         
@@ -214,6 +259,15 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Group に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabName_Group {
+            get {
+                return ResourceManager.GetString("TabName_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Info に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TabName_Info {
@@ -228,6 +282,15 @@ namespace Jukusui.RandomGen.Properties {
         internal static string TabName_License {
             get {
                 return ResourceManager.GetString("TabName_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Order に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TabName_Order {
+            get {
+                return ResourceManager.GetString("TabName_Order", resourceCulture);
             }
         }
         

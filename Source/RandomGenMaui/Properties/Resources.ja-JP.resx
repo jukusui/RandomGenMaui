@@ -177,4 +177,25 @@
   <data name="License_Group_Nuget" xml:space="preserve">
     <value>Nugetパッケージ</value>
   </data>
+  <data name="TabName_Group" xml:space="preserve">
+    <value>組分け</value>
+  </data>
+  <data name="TabName_Order" xml:space="preserve">
+    <value>順番</value>
+  </data>
+  <data name="Order_Input" xml:space="preserve">
+    <value>入力</value>
+  </data>
+  <data name="Order_InputPlaceholder" xml:space="preserve">
+    <value>数値 or 空白区切り</value>
+  </data>
+  <data name="Error_ListConvert" xml:space="preserve">
+    <value>正しく空白区切りされていません</value>
+  </data>
+  <data name="Error_NumberOrList" xml:space="preserve">
+    <value>数値か空白区切りで入力してください</value>
+  </data>
+  <data name="Error_ListLonger" xml:space="preserve">
+    <value>データ数が多すぎます</value>
+  </data>
 </root>

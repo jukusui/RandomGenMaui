@@ -30,6 +30,7 @@ internal abstract class RngBase
 
     // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Random.ImplBase.cs#L38
     // NextUInt32/64 algorithms based on https://arxiv.org/pdf/1805.10941.pdf and https://github.com/lemire/fastrange.
+    // 0~(maxValue-1) = maxValue種類の値
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal uint NextUInt32(uint maxValue)
     {
@@ -52,6 +53,7 @@ internal abstract class RngBase
 
     // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Random.ImplBase.cs#L38
     // NextUInt32/64 algorithms based on https://arxiv.org/pdf/1805.10941.pdf and https://github.com/lemire/fastrange.
+    // 0~(maxValue-1) = maxValue種類の値
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal ulong NextUInt64(ulong maxValue)
     {

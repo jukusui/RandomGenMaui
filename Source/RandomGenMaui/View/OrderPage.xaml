@@ -2,19 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Jukusui.RandomGen.View.Control"
+             xmlns:v="clr-namespace:Jukusui.RandomGen.View"
              xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
              xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
              xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
              xmlns:scg="clr-namespace:System.Collections.Generic;assembly=netstandard"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
-             x:Class="Jukusui.RandomGen.View.DicePage"
-             Title="{x:Static prop:Resources.TabName_Dice}" util:ToastManager.Text="{Binding ErrorText}"
-             x:DataType="{x:Type vm:DiceViewModel}">
+             x:Class="Jukusui.RandomGen.View.OrderPage" util:ToastManager.Text="{Binding ErrorText}"
+             Title="OrderPage" x:DataType="{x:Type vm:OrderViewModel}">
     <ContentPage.BindingContext>
-        <vm:DiceViewModel/>
+        <vm:OrderViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
-        <util:IsEmptyStringConverter x:Key="isEmpty"/>
+        <util:ListAnyConverter x:TypeArguments="x:String" x:Key="listAny" />
     </ContentPage.Resources>
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup>
@@ -22,19 +22,18 @@
                 <VisualState.StateTriggers>
                     <AdaptiveTrigger MinWindowWidth="0"/>
                 </VisualState.StateTriggers>
-
             </VisualState>
             <VisualState Name="Wide">
                 <VisualState.StateTriggers>
                     <AdaptiveTrigger MinWindowWidth="500"/>
                 </VisualState.StateTriggers>
                 <VisualState.Setters>
-                    <Setter TargetName="MaxButtons" Property="Grid.ColumnSpan" Value="1"/>
-                    <Setter TargetName="MaxButtons" Property="Grid.RowSpan" Value="2"/>
-                    <Setter TargetName="RoleButtons" Property="Grid.ColumnSpan" Value="1"/>
-                    <Setter TargetName="RoleButtons" Property="Grid.Column" Value="1"/>
-                    <Setter TargetName="RoleButtons" Property="Grid.Row" Value="1"/>
-                    <Setter TargetName="RoleButtons" Property="Grid.RowSpan" Value="2"/>
+                    <Setter TargetName="InputGrid" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="InputGrid" Property="Grid.RowSpan" Value="2"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.Column" Value="1"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.Row" Value="0"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.RowSpan" Value="2"/>
                 </VisualState.Setters>
             </VisualState>
         </VisualStateGroup>
@@ -43,65 +42,53 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="2" ColumnSpacing="8">
+        <Grid x:Name="InputGrid" Grid.ColumnSpan="2" ColumnSpacing="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Label Text="{x:Static prop:Resources.Dice_Max}" FontSize="Subtitle" VerticalOptions="Center"/>
-            <Entry Grid.Column="1" Keyboard="Numeric" Text="{Binding MaximumText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+            <Label Text="{x:Static prop:Resources.Order_Input}" FontSize="Subtitle" VerticalOptions="Center" />
+            <Entry Grid.Column="1" Text="{Binding ListText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                   Placeholder="{x:Static prop:Resources.Order_InputPlaceholder}"
                    ToolTipProperties.Text="{Binding ErrorText}" util:ErrorColorManager.TextColorOverride="Red" util:ErrorColorManager.EnableColorOverride="{Binding ErrorText}"/>
-            <Stepper Grid.Column="2" Value="{Binding Maximum,Mode=TwoWay}"
-                     Minimum="{Binding RangeMin,Mode=OneTime}" Maximum="{Binding RangeMax,Mode=OneTime}"></Stepper>
         </Grid>
-        <FlexLayout x:Name="MaxButtons" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,-8,-8" Wrap="Wrap">
-            <FlexLayout.Resources>
-                <Style TargetType="Button" Class="Flex">
-                    <Setter Property="Margin" Value="0,0,4,8"/>
-                    <Setter Property="Command" Value="{Binding SetValueCommand}"/>
-                </Style>
-            </FlexLayout.Resources>
-            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="2" CommandParameter="2"/>
-            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="6" CommandParameter="6"/>
-            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="10" CommandParameter="10"/>
-            <Button Style="{StaticResource SecondaryButton}" StyleClass="Flex" Text="100" CommandParameter="100"/>
-        </FlexLayout>
-        <Grid x:Name="RoleButtons" Grid.Row="2" Grid.ColumnSpan="2" ColumnSpacing="8">
+
+        <Grid x:Name="RoleGrid" Grid.Row="1" Grid.ColumnSpan="2" ColumnSpacing="8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Button Text="{x:Static prop:Resources.Dice_Roll}" FontSize="Subtitle" Command="{Binding RollCommand}" VerticalOptions="Center"
-                    Padding="0,-4" IsEnabled="{Binding ErrorText,Converter={StaticResource isEmpty}}"/>
+                    Padding="0,-4" IsEnabled="{Binding ItemsList,Converter={StaticResource listAny}}"/>
             <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" Command="{Binding DeleteCommand}" VerticalOptions="Center" 
                     Text="&#xEA4C;" FontFamily="MaterialIconsRegular"
                     FontSize="Title" Padding="-22"/>
         </Grid>
-        <Border Grid.Row="3" Grid.ColumnSpan="2">
-            <CollectionView ItemsSource="{Binding Results}" SelectionMode="None"
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2">
+            <CollectionView ItemsSource="{Binding ResultLists}" SelectionMode="None"
                             ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="8,0,0,0" ColumnSpacing="4" x:DataType="scg:KeyValuePair(sys:Int32,sys:UInt32)">
+                    <DataTemplate x:DataType="scg:KeyValuePair(sys:Int32,scg:IReadOnlyList(sys:String))">
+                        <Grid Padding="8,4,0,4" ColumnSpacing="4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Key}" FontSize="Large"
                                    VerticalOptions="Center"/>
-                            <Entry Grid.Column="1" Text="{Binding Value,Mode=OneWay}" FontSize="Large"
+                            <Entry Grid.Column="1" FontSize="Large"
                                    HorizontalOptions="FillAndExpand" IsReadOnly="True"
-                                   VerticalOptions="Center">
+                                   Text="{Binding Value,Converter={x:Static v:OrderPage.TextJoin}}">
                                 <Entry.GestureRecognizers>
-                                    <TapGestureRecognizer Buttons="Primary" Tapped="OnOutputEntryTapped" />
+                                    <TapGestureRecognizer Buttons="Primary" Tapped="OnOutputListTapped"  />
                                 </Entry.GestureRecognizers>
                             </Entry>
                         </Grid>
@@ -109,5 +96,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Border>
+
     </Grid>
 </ContentPage>
