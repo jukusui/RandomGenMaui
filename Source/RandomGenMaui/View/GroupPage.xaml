@@ -1,12 +1,134 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Jukusui.RandomGen.View.Control"
+             xmlns:v="clr-namespace:Jukusui.RandomGen.View"
+             xmlns:vm="clr-namespace:Jukusui.RandomGen.ViewModel"
+             xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
+             xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
+             xmlns:scg="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="Jukusui.RandomGen.View.GroupPage"
              Title="GroupPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:GroupViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <util:ListAnyConverter x:TypeArguments="x:String" x:Key="stringListAny" />
+        <util:ListAnyConverter x:TypeArguments="x:Int32" x:Key="intListAny" />
+        <util:BoolConverters x:Key="andConv" Operation="And" />
+    </ContentPage.Resources>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState Name="Narrow">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0"/>
+                </VisualState.StateTriggers>
+            </VisualState>
+            <VisualState Name="Wide">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="500"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter TargetName="GroupGrid" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="GroupGrid" Property="Grid.RowSpan" Value="2"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.ColumnSpan" Value="1"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.Column" Value="1"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.Row" Value="1"/>
+                    <Setter TargetName="RoleGrid" Property="Grid.RowSpan" Value="2"/>
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <Grid VerticalOptions="Fill" Margin="16" RowSpacing="16" ColumnSpacing="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="InputGrid" Grid.ColumnSpan="2" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{x:Static prop:Resources.Group_Input}" FontSize="Subtitle" VerticalOptions="Center" />
+            <Entry Grid.Column="1" Text="{Binding ListText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                   Placeholder="{x:Static prop:Resources.Group_InputPlaceholder}"
+                   ToolTipProperties.Text="{Binding ListErrorText}" util:ErrorColorManager.TextColorOverride="Red" util:ErrorColorManager.EnableColorOverride="{Binding ListErrorText}"/>
+        </Grid>
+        <Grid x:Name="GroupGrid" Grid.Row="1" Grid.ColumnSpan="2" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{x:Static prop:Resources.Group_Grouping}" FontSize="Subtitle" VerticalOptions="Center" />
+            <Entry Grid.Column="1" Text="{Binding GroupText,Mode=TwoWay}" ClearButtonVisibility="WhileEditing"
+                   Placeholder="{x:Static prop:Resources.Group_GroupingPlaceholder}"
+                   ToolTipProperties.Text="{Binding GroupErrorText}" util:ErrorColorManager.TextColorOverride="Red" util:ErrorColorManager.EnableColorOverride="{Binding GroupErrorText}"/>
+        </Grid>
+        <Grid x:Name="RoleGrid" Grid.Row="2" Grid.ColumnSpan="2" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="{x:Static prop:Resources.Group_Shuffle}" FontSize="Subtitle" Command="{Binding RollCommand}" VerticalOptions="Center"
+                    Padding="0,-4">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource andConv}">
+                        <Binding Path="ItemsList" Converter="{StaticResource stringListAny}"/>
+                        <Binding Path="GroupList" Converter="{StaticResource intListAny}"/>
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" Command="{Binding DeleteCommand}" VerticalOptions="Center" 
+                    Text="&#xEA4C;" FontFamily="MaterialIconsRegular"
+                    FontSize="Title" Padding="-22"/>
+        </Grid>
+        <OnPlatform x:TypeArguments="View">
+            <On Platform="WinUI">
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding ListErrorText}"/>
+                    <Label Text="{Binding GroupErrorText}" Grid.Row="1"/>
+                </Grid>
+            </On>
+        </OnPlatform>
+        <Border Grid.Row="{OnPlatform WinUI=4,Default=3}" Grid.RowSpan="{OnPlatform WinUI=1,Default=2}" Grid.ColumnSpan="2">
+
+            <CollectionView ItemsSource="{Binding ResultLists}" SelectionMode="None"
+                            ItemsUpdatingScrollMode="KeepLastItemInView" VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="scg:KeyValuePair(sys:Int32,scg:IReadOnlyList(scg:IReadOnlyList(sys:String)))">
+                        <Grid Padding="8,4,0,4" ColumnSpacing="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Key}" FontSize="Large"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1" FontSize="Large"
+                                   HorizontalOptions="FillAndExpand" IsReadOnly="True"
+                                   Text="{Binding Value,Converter={x:Static v:GroupPage.TextJoin}}">
+                                <Entry.GestureRecognizers>
+                                    <TapGestureRecognizer Buttons="Primary" Tapped="OnOutputListTapped"  />
+                                </Entry.GestureRecognizers>
+                            </Entry>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+    </Grid>
 </ContentPage>

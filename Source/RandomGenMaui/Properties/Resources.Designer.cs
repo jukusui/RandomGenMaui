@@ -151,6 +151,51 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   Grouping に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Group_Grouping {
+            get {
+                return ResourceManager.GetString("Group_Grouping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Number or Space Delimited Numbers に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Group_GroupingPlaceholder {
+            get {
+                return ResourceManager.GetString("Group_GroupingPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Items に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Group_Input {
+            get {
+                return ResourceManager.GetString("Group_Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Count or Space Delimited Names に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Group_InputPlaceholder {
+            get {
+                return ResourceManager.GetString("Group_InputPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Shuffle に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Group_Shuffle {
+            get {
+                return ResourceManager.GetString("Group_Shuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Fonts に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string License_Group_Font {
@@ -178,11 +223,20 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
-        ///   Number or Space Delimited Text に類似しているローカライズされた文字列を検索します。
+        ///   Count or Space Delimited Names に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string Order_InputPlaceholder {
             get {
                 return ResourceManager.GetString("Order_InputPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Shuffle に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Order_Shuffle {
+            get {
+                return ResourceManager.GetString("Order_Shuffle", resourceCulture);
             }
         }
         

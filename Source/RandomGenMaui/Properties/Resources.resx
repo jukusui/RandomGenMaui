@@ -205,13 +205,37 @@
     <value>Order</value>
     <comment>タブ表示名_順序</comment>
   </data>
+  <data name="Order_Shuffle" xml:space="preserve">
+    <value>Shuffle</value>
+    <comment>順序_シャッフル</comment>
+  </data>
+  <data name="Group_Shuffle" xml:space="preserve">
+    <value>Shuffle</value>
+    <comment>組分_シャッフル</comment>
+  </data>
   <data name="Order_Input" xml:space="preserve">
     <value>Input</value>
     <comment>順序_入力</comment>
   </data>
+  <data name="Group_Input" xml:space="preserve">
+    <value>Items</value>
+    <comment>組分_入力</comment>
+  </data>
+  <data name="Group_Grouping" xml:space="preserve">
+    <value>Grouping</value>
+    <comment>組分_組分け</comment>
+  </data>
   <data name="Order_InputPlaceholder" xml:space="preserve">
-    <value>Number or Space Delimited Text</value>
+    <value>Count or Space Delimited Names</value>
     <comment>順序_プレースホルダ</comment>
+  </data>
+  <data name="Group_InputPlaceholder" xml:space="preserve">
+    <value>Count or Space Delimited Names</value>
+    <comment>組分_プレースホルダ</comment>
+  </data>
+  <data name="Group_GroupingPlaceholder" xml:space="preserve">
+    <value>Number or Space Delimited Numbers</value>
+    <comment>組分_プレースホルダ</comment>
   </data>
   <data name="Error_ListConvert" xml:space="preserve">
     <value>Value is NOT Space Delimited</value>

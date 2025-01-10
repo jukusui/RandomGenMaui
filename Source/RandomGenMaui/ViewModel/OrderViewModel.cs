@@ -15,7 +15,7 @@ namespace Jukusui.RandomGen.ViewModel;
 public partial class OrderViewModel : ObservableObject
 {
 
-    private const int MAX_COUNT = 10;
+    private const int MAX_COUNT = 1000;
 
     private string listText = "";
 
@@ -94,10 +94,14 @@ public partial class OrderViewModel : ObservableObject
         }
     }
 
-    private static Regex emptyOnlyRegex = new Regex(@"^\s+$");
-    private static Regex emptyRegex = new Regex(@"\s+");
-    private static Regex splitRegex = new Regex(@"^([^\s]+)(?:\s+([^\s]+))*$");
-    private static Regex numberRegex = new Regex(@"^[0-9]+$");
+    [GeneratedRegex(@"^\s+$")]
+    private static partial Regex emptyOnlyRegex { get; }
+    [GeneratedRegex(@"\s+")]
+    private static partial Regex emptyRegex { get; }
+    [GeneratedRegex(@"^([^\s]+)(?:\s+([^\s]+))*$")]
+    private static partial Regex splitRegex { get; }
+    [GeneratedRegex(@"^[0-9]+$")]
+    private static partial Regex numberRegex { get; }
 
     [ObservableProperty]
     public partial IReadOnlyList<string> ItemsList { get; set; } = Array.Empty<string>();

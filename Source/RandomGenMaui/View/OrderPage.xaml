@@ -65,7 +65,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button Text="{x:Static prop:Resources.Dice_Roll}" FontSize="Subtitle" Command="{Binding RollCommand}" VerticalOptions="Center"
+            <Button Text="{x:Static prop:Resources.Order_Shuffle}" FontSize="Subtitle" Command="{Binding RollCommand}" VerticalOptions="Center"
                     Padding="0,-4" IsEnabled="{Binding ItemsList,Converter={StaticResource listAny}}"/>
             <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" Command="{Binding DeleteCommand}" VerticalOptions="Center" 
                     Text="&#xEA4C;" FontFamily="MaterialIconsRegular"

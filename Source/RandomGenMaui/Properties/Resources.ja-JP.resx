@@ -181,13 +181,31 @@
     <value>組分け</value>
   </data>
   <data name="TabName_Order" xml:space="preserve">
-    <value>順番</value>
+    <value>並替え</value>
+  </data>
+  <data name="Order_Shuffle" xml:space="preserve">
+    <value>並替え</value>
+  </data>
+  <data name="Group_Shuffle" xml:space="preserve">
+    <value>組分け</value>
   </data>
   <data name="Order_Input" xml:space="preserve">
     <value>入力</value>
   </data>
+  <data name="Group_Input" xml:space="preserve">
+    <value>入力</value>
+  </data>
+  <data name="Group_Grouping" xml:space="preserve">
+    <value>組分け</value>
+  </data>
   <data name="Order_InputPlaceholder" xml:space="preserve">
-    <value>数値 or 空白区切り</value>
+    <value>個数 or 名称(空白区切り)</value>
+  </data>
+  <data name="Group_InputPlaceholder" xml:space="preserve">
+    <value>個数 or 名称(空白区切り)</value>
+  </data>
+  <data name="Group_GroupingPlaceholder" xml:space="preserve">
+    <value>組数 or 定員(空白区切り)</value>
   </data>
   <data name="Error_ListConvert" xml:space="preserve">
     <value>正しく空白区切りされていません</value>
