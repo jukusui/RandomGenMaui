@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android">
+	<style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="Maui.SplashTheme" parent="Maui.MainTheme.NoActionBar">
+		<item name="android:windowSplashScreenBackground">@color/splash_background</item>
+		<item name="android:windowSplashScreenIconBackgroundColor">@color/appicon_background</item>
+		<item name="android:windowSplashScreenAnimatedIcon">@drawable/appicon_foreground</item>
+		<item name="android:windowSplashScreenAnimationDuration">0</item>
+	</style>
+</resources>

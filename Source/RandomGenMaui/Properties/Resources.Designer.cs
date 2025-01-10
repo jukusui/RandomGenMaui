@@ -61,6 +61,24 @@ namespace Jukusui.RandomGen.Properties {
         }
         
         /// <summary>
+        ///   https://www.jukusui.net/Product/RandomGen/ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AppInfo_AppWeb {
+            get {
+                return ResourceManager.GetString("AppInfo_AppWeb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Jukusui に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string AppInfo_Creator {
+            get {
+                return ResourceManager.GetString("AppInfo_Creator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   RandomGen に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AppInfo_Name {
@@ -192,6 +210,15 @@ namespace Jukusui.RandomGen.Properties {
         internal static string Group_Shuffle {
             get {
                 return ResourceManager.GetString("Group_Shuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Website に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Info_Web {
+            get {
+                return ResourceManager.GetString("Info_Web", resourceCulture);
             }
         }
         

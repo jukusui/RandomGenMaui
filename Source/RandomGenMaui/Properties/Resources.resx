@@ -249,4 +249,16 @@
     <value>Items are Too many</value>
     <comment>エラー_データ数が多すぎます</comment>
   </data>
+  <data name="AppInfo_Creator" xml:space="preserve">
+    <value>Jukusui</value>
+    <comment>アプリ情報_作者</comment>
+  </data>
+  <data name="Info_Web" xml:space="preserve">
+    <value>Website</value>
+    <comment>情報_Webページ</comment>
+  </data>
+  <data name="AppInfo_AppWeb" xml:space="preserve">
+    <value>https://www.jukusui.net/Product/RandomGen/</value>
+    <comment>アプリ情報_Webページ</comment>
+  </data>
 </root>

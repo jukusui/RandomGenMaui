@@ -11,6 +11,7 @@
 		<AssemblyName>Jukusui.RandomGen.Droid</AssemblyName>
 		<RootNamespace>Jukusui.RandomGen.Droid</RootNamespace>
 
+		<Copyright>Jukusui</Copyright>
 		<Version>0.8.0.1</Version>
 	</PropertyGroup>
 

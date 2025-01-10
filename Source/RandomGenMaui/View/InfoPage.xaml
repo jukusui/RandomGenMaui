@@ -5,9 +5,14 @@
              xmlns:prop="clr-namespace:Jukusui.RandomGen.Properties"
              xmlns:util="clr-namespace:Jukusui.RandomGen.Util"
              Title="InfoPage">
-    <VerticalStackLayout Margin="16">
-        <Label FontSize="Title"
-               HorizontalOptions="Center">
+    <ContentPage.Resources>
+        <Style x:Key="Accent" TargetType="Span">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Primary},Dark={StaticResource PrimaryDark}}"/>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Margin="16" HorizontalOptions="Center">
+        <Label FontSize="{util:Multiply Value=Medium,Factor=2.5}"
+               HorizontalOptions="Center" LineBreakMode="NoWrap" Margin="-16,0">
             <Label.Resources>
                 <Style TargetType="Span">
                     <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Primary},Dark={StaticResource PrimaryDark}}"/>
@@ -21,12 +26,30 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <Label FontSize="Caption"
+        <Label x:Name="verLabel" FontSize="{util:Multiply Value=Medium,Factor=1.25}"
             HorizontalOptions="Center" >
             <Label.FormattedText>
                 <FormattedString>
                     <Span Text="α Ver:"/>
                     <Span Text="{x:Static util:AssemblyInfoManager.Version}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label FontSize="{util:Multiply Value=Medium,Factor=1}" HorizontalOptions="End">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="By "/>
+                    <Span Text="{x:Static prop:Resources.AppInfo_Creator}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label HorizontalOptions="Center" Margin="-16,16,-16,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{x:Static prop:Resources.Info_Web}"/>
+                    <Span Text=" : "/>
+                    <util:HyperlinkSpan Style="{StaticResource Accent}" Text="{x:Static prop:Resources.AppInfo_AppWeb}"
+                                        Url="{x:Static prop:Resources.AppInfo_AppWeb}"/>
                 </FormattedString>
             </Label.FormattedText>
         </Label>

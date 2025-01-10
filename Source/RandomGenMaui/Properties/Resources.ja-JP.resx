@@ -216,4 +216,13 @@
   <data name="Error_ListLonger" xml:space="preserve">
     <value>データ数が多すぎます</value>
   </data>
+  <data name="AppInfo_Creator" xml:space="preserve">
+    <value>Jukusui</value>
+  </data>
+  <data name="Info_Web" xml:space="preserve">
+    <value>Webページ</value>
+  </data>
+  <data name="AppInfo_AppWeb" xml:space="preserve">
+    <value>https://www.jukusui.net/Product/RandomGen/</value>
+  </data>
 </root>
