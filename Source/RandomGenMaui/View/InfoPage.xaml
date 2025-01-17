@@ -20,9 +20,9 @@
             </Label.Resources>
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="&#xE000;" FontFamily="RandomGenIcon" />
+                    <Span Text="&#xE000;" FontFamily="RandomGenIcon"/>
                     <Span Text=" "/>
-                    <Span Text="{x:Static prop:Resources.AppInfo_Name}"/>
+                    <Span Text="{x:Static prop:Resources.AppInfo_Name}" FontAttributes="Bold"/>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
